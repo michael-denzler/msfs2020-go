@@ -16,9 +16,9 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/lian/msfs2020-go/simconnect"
-	"github.com/lian/msfs2020-go/vfrmap/html/leafletjs"
-	"github.com/lian/msfs2020-go/vfrmap/websockets"
+	"github.com/michael-denzler/msfs2020-go/simconnect"
+	"github.com/michael-denzler/msfs2020-go/vfrmap/html/leafletjs"
+	"github.com/michael-denzler/msfs2020-go/vfrmap/websockets"
 )
 
 type Report struct {
@@ -34,6 +34,7 @@ type Report struct {
 	Flaps         float64   `name:"TRAILING EDGE FLAPS LEFT ANGLE" unit:"degrees"`
 	Trim          float64   `name:"ELEVATOR TRIM PCT" unit:"percent"`
 	RudderTrim    float64   `name:"RUDDER TRIM PCT" unit:"percent"`
+	Gears         float64   `name:"Gear Position" unit:"percent"`
 }
 
 func (r *Report) RequestData(s *simconnect.SimConnect) {
@@ -262,6 +263,7 @@ func main() {
 						"flaps":          fmt.Sprintf("%.0f", report.Flaps),
 						"trim":           fmt.Sprintf("%.1f", report.Trim),
 						"rudder_trim":    fmt.Sprintf("%.1f", report.RudderTrim),
+						"gears":    fmt.Sprintf("%.1f", report.Gears),
 					})
 
 				case s.DefineMap["TrafficReport"]:
