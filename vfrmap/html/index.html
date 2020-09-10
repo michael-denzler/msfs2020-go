@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>msfs2020-go/vfrmap</title>
+    <title>msfs2020-go/vfrmap gears</title>
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="leafletjs/leaflet.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -132,6 +132,7 @@
         hud.flaps.innerText = msg.flaps;
         hud.trim.innerText = msg.trim;
         hud.rudder_trim.innerText = msg.rudder_trim;
+        hud.gears.innerText = msg.gears;
       }
 
       ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/ws");
@@ -319,6 +320,7 @@
           flaps: document.getElementById("flaps_value"),
           trim: document.getElementById("trim_value"),
           rudder_trim: document.getElementById("rudder_trim_value"),
+          gears: document.getElementById("gears_value"),
         };
 
         toggle_follow();
@@ -335,6 +337,7 @@
       <span class="field">Flaps: <span id="flaps_value" class="value">0</span></span>
       <span class="field">Trim: <span id="trim_value" class="value">0</span></span>
       <span class="field">R.Trim: <span id="rudder_trim_value" class="value">0</span></span>
+      <span class="field">Gears: <span id="gears_value" class="value">0</span></span>
     </div>
     <span id="hide-hud" onclick="hide_hud();">hide hud</span>
 
